@@ -1,0 +1,15 @@
+# Build outputs
+bin/
+obj/
+
+# Visual Studio
+.vs/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# .vscode
+.vscode
