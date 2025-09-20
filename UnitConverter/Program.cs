@@ -1,6 +1,4 @@
-﻿using System.Net;
-
-class Program
+﻿class Program
 {
     static void Main(string[] args)
     {
