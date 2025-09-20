@@ -19,49 +19,55 @@ Each project builds on the previous one, covering topics step by step.
 
 ---
 
-### 3. Employee Manager (OOP Basics)
+### 3. Word Guessing Game (Service Architecture + State Management)
+**Concepts:** Service-based architecture, state management, input validation, collections.  
+**Example:** Hangman-style word guessing game with professional architecture.  
+
+---
+
+### 4. Employee Manager (OOP Basics)
 **Concepts:** Classes, objects, constructors, properties, access modifiers.  
 **Example:** Add/list/search employees in memory.  
 
 ---
 
-### 4. Shape Drawer (OOP Advanced: Inheritance + Interfaces)
+### 5. Shape Drawer (OOP Advanced: Inheritance + Interfaces)
 **Concepts:** Abstract classes, virtual/override, interfaces, polymorphism.  
 **Example:** Base `Shape` → `Circle`, `Rectangle`, `Triangle`, calculate area/perimeter.  
 
 ---
 
-### 5. Inventory Tracker (Collections + LINQ)
+### 6. Inventory Tracker (Collections + LINQ)
 **Concepts:** `List<T>`, `Dictionary<TKey,TValue>`, LINQ queries (`Where`, `Select`, `OrderBy`, `GroupBy`).  
 **Example:** Manage products (add, update, remove), search and filter with LINQ.  
 
 ---
 
-### 6. Movie Explorer (LINQ + Lambda Expressions)
+### 7. Movie Explorer (LINQ + Lambda Expressions)
 **Concepts:** LINQ query syntax & method syntax, lambdas, anonymous types.  
 **Example:** Load in-memory movie list → filter by genre/year, sort, group by director.  
 
 ---
 
-### 7. Download Manager Simulator (Delegates + Events + Async)
+### 8. Download Manager Simulator (Delegates + Events + Async)
 **Concepts:** Delegates, events, `async/await`, tasks, cancellation tokens.  
 **Example:** Simulate file downloads with progress events and async methods.  
 
 ---
 
-### 8. CSV Contact Book (File I/O + Exception Handling)
+### 9. CSV Contact Book (File I/O + Exception Handling)
 **Concepts:** `StreamReader`, `StreamWriter`, `try/catch`, `IDisposable`.  
 **Example:** Save/load contacts from CSV file, search and edit contacts.  
 
 ---
 
-### 9. Mini Validator (Attributes + Reflection)
+### 10. Mini Validator (Attributes + Reflection)
 **Concepts:** Custom attributes, reflection, validation logic.  
 **Example:** `[Required]` and `[Range]` attributes on `User` class, validate input dynamically.  
 
 ---
 
-### 10. Todo API (ASP.NET Core Basics + .NET Ecosystem)
+### 11. Todo API (ASP.NET Core Basics + .NET Ecosystem)
 **Concepts:** ASP.NET Core minimal API, dependency injection, layered structure.  
 **Example:** Simple CRUD API for todo items (`GET/POST/PUT/DELETE`).  
 
@@ -72,6 +78,8 @@ Each project builds on the previous one, covering topics step by step.
 - **Fundamentals** → Unit Converter  
 - **Control Flow** → Quiz Game  
 - **Methods & Exceptions** → Unit Converter / Quiz Game  
+- **Service Architecture** → Word Guessing Game  
+- **State Management** → Word Guessing Game  
 - **OOP Basics** → Employee Manager  
 - **OOP Advanced** → Shape Drawer  
 - **Collections** → Inventory Tracker  
