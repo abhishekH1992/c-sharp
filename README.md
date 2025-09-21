@@ -37,41 +37,21 @@ Each project builds on the previous one, covering topics step by step.
 
 ---
 
-### 6. Inventory Tracker (Collections + LINQ)
-**Concepts:** `List<T>`, `Dictionary<TKey,TValue>`, LINQ queries (`Where`, `Select`, `OrderBy`, `GroupBy`).  
-**Example:** Manage products (add, update, remove), search and filter with LINQ.  
-
----
-
-### 7. Movie Explorer (LINQ + Lambda Expressions)
+### 6. Movie Explorer (LINQ + Lambda Expressions + List<T> + Dictionary<TKey,TValue>)
 **Concepts:** LINQ query syntax & method syntax, lambdas, anonymous types.  
 **Example:** Load in-memory movie list → filter by genre/year, sort, group by director.  
 
 ---
 
-### 8. Download Manager Simulator (Delegates + Events + Async)
+### 7. Download Manager Simulator (Delegates + Events + Async)
 **Concepts:** Delegates, events, `async/await`, tasks, cancellation tokens.  
 **Example:** Simulate file downloads with progress events and async methods.  
 
 ---
 
-### 9. CSV Contact Book (File I/O + Exception Handling)
+### 8. CSV Contact Book (File I/O + Exception Handling)
 **Concepts:** `StreamReader`, `StreamWriter`, `try/catch`, `IDisposable`.  
 **Example:** Save/load contacts from CSV file, search and edit contacts.  
-
----
-
-### 10. Mini Validator (Attributes + Reflection)
-**Concepts:** Custom attributes, reflection, validation logic.  
-**Example:** `[Required]` and `[Range]` attributes on `User` class, validate input dynamically.  
-
----
-
-### 11. Todo API (ASP.NET Core Basics + .NET Ecosystem)
-**Concepts:** ASP.NET Core minimal API, dependency injection, layered structure.  
-**Example:** Simple CRUD API for todo items (`GET/POST/PUT/DELETE`).  
-
----
 
 ## Coverage Map
 
