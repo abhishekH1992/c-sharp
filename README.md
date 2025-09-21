@@ -31,9 +31,9 @@ Each project builds on the previous one, covering topics step by step.
 
 ---
 
-### 5. Shape Drawer (OOP Advanced: Inheritance + Interfaces)
+### 5. E-commerce System (OOP Advanced: Inheritance + Interfaces)
 **Concepts:** Abstract classes, virtual/override, interfaces, polymorphism.  
-**Example:** Base `Shape` → `Circle`, `Rectangle`, `Triangle`, calculate area/perimeter.  
+**Example:** Base `Product` → `Electronics`, `Clothing`, `Books`, add to cart, checkout, order management.  
 
 ---
 
