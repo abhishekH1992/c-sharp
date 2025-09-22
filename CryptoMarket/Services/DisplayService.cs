@@ -7,7 +7,8 @@ namespace CryptoMarket.Services
             Console.WriteLine("Select options from below: ");
             Console.WriteLine(new string('-', 75));
 
-            Console.WriteLine("1 - To add new user \n"+
+            Console.WriteLine("100 - Market \n"+
+                                "1 - To add new user\n"+
                                 "2 - Get List of all users\n"+
                                 "3 - Get List of all regular users\n"+
                                 "4 - Get List of all premium users\n"+

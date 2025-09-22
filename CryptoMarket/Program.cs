@@ -1,5 +1,7 @@
 ﻿using CryptoMarket.Services;
-using CryptoMarket.Models.UserTypes;
+using CryptoMarket.Repositories;
+using CryptoMarket.Data;
+using CryptoMarket.Interfaces;
 
 internal class Program {
     static void Main() {
@@ -12,10 +14,20 @@ internal class Program {
         bool isRunning = true;
         var displayService = new DisplayService();
 
-        // Dependency Injection - Create instances and inject them
-        var regularUser = new RegularUser("temp");
-        var premiumUser = new PremiumUser("temp");
-        var userService = new UserService(regularUser, premiumUser);
+        // Dependency Injection - Create instances following SOLID principles
+        var userRepository = new UserRepository();
+        userRepository.InitializeWithSeedData(); // Initialize with seed data
+        
+        var userValidationService = new UserValidationService();
+        var userCreationService = new UserCreationService(userRepository, userValidationService);
+        var userDisplayService = new UserDisplayService(userRepository);
+        var userInputService = new UserInputService(userValidationService);
+        
+        var userService = new UserService(userCreationService, userDisplayService, userInputService);
+        
+        // Market service with dependency injection
+        var marketSeeder = new MarketSeeder();
+        IMarketService marketService = new MarketService(marketSeeder);
 
         while (isRunning) {
             int option = displayService.MainMenu();
@@ -26,6 +38,9 @@ internal class Program {
                     Console.WriteLine("Thank you for visting Crypto world");
                     Console.WriteLine(new string('-', 75));
                     isRunning = false;
+                    break;
+                case 100:
+                    marketService.DisplayMarkets();
                     break;
                 case 1:
                     userService.CreateUser();
