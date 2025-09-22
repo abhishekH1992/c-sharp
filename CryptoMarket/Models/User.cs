@@ -1,4 +1,6 @@
-public abstract class User {
+namespace CryptoMarket.Models
+{
+    public abstract class User {
     // ENCAPSULATION - Private fields with controlled access
     private readonly Guid _userId;
     private string _name = string.Empty;
@@ -59,4 +61,5 @@ public abstract class User {
     // Abstract methods for user-specific behavior
     public abstract decimal GetTradingLimit();
     public abstract bool CanCreateMultipleWallets();
+    }
 }

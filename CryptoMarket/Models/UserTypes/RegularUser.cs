@@ -1,5 +1,14 @@
-public class RegularUser : User {
+namespace CryptoMarket.Models.UserTypes
+{
+    public class RegularUser : User {
     private static List<User> _regularUsers = new List<User>();
+    
+    // Static constructor to initialize seed data
+    static RegularUser() {
+        _regularUsers.Add(new RegularUser("John Doe"));
+        _regularUsers.Add(new RegularUser("Jane Smith"));
+        _regularUsers.Add(new RegularUser("Bob Johnson"));
+    }
     
     public RegularUser(string name) : base(name, "Regular") {}
     
@@ -21,4 +30,5 @@ public class RegularUser : User {
 
     public override decimal GetTradingLimit() => 50000m;
     public override bool CanCreateMultipleWallets() => false;
+    }
 }

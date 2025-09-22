@@ -1,4 +1,7 @@
-﻿internal class CryptoMarket {
+﻿using CryptoMarket.Services;
+using CryptoMarket.Models.UserTypes;
+
+internal class Program {
     static void Main() {
         Console.WriteLine(new string('-', 75));
         Console.WriteLine(new string('-', 75));

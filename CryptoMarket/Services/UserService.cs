@@ -1,4 +1,9 @@
-public class UserService {
+using CryptoMarket.Models;
+using CryptoMarket.Models.UserTypes;
+
+namespace CryptoMarket.Services
+{
+    public class UserService {
     private List<User> _users = new List<User>();
     private readonly RegularUser _regularUser;
     private readonly PremiumUser _premiumUser;
@@ -7,6 +12,27 @@ public class UserService {
     public UserService(RegularUser regularUser, PremiumUser premiumUser) {
         _regularUser = regularUser;
         _premiumUser = premiumUser;
+        
+        // Initialize with seed data
+        InitializeWithSeedData();
+    }
+
+    // ENCAPSULATION - Private method to initialize with seed data
+    private void InitializeWithSeedData()
+    {
+        // Create seed users directly
+        var regularUser1 = new RegularUser("John Doe");
+        var regularUser2 = new RegularUser("Jane Smith");
+        var regularUser3 = new RegularUser("Bob Johnson");
+        var premiumUser1 = new PremiumUser("Alice Brown");
+        var premiumUser2 = new PremiumUser("Charlie Wilson");
+        
+        _users.AddRange(new User[] { regularUser1, regularUser2, regularUser3, premiumUser1, premiumUser2 });
+        
+        Console.WriteLine($"Initialized with {_users.Count} seed users:");
+        Console.WriteLine($"  - Regular: {_users.Count(u => u.AccountType == "Regular")} users");
+        Console.WriteLine($"  - Premium: {_users.Count(u => u.AccountType == "Premium")} users");
+        Console.WriteLine();
     }
 
     protected List<User> GetUsers() {
@@ -99,5 +125,6 @@ public class UserService {
         } else {
             Console.WriteLine("No premium users found.");
         }
+    }
     }
 }

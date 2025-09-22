@@ -1,5 +1,13 @@
-public class PremiumUser : User {
+namespace CryptoMarket.Models.UserTypes
+{
+    public class PremiumUser : User {
     private static List<User> _premiumUsers = new List<User>();
+
+    // Static constructor to initialize seed data
+    static PremiumUser() {
+        _premiumUsers.Add(new PremiumUser("Alice Brown"));
+        _premiumUsers.Add(new PremiumUser("Charlie Wilson"));
+    }
 
     public PremiumUser(string name) : base(name, "Premium") {}
     
@@ -21,4 +29,5 @@ public class PremiumUser : User {
 
     public override decimal GetTradingLimit() => 100000m;
     public override bool CanCreateMultipleWallets() => true;
+    }
 }
