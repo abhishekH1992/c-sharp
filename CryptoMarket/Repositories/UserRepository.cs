@@ -1,4 +1,5 @@
 using CryptoMarket.Models;
+using CryptoMarket.Models.UserTypes;
 using CryptoMarket.Interfaces;
 
 namespace CryptoMarket.Repositories

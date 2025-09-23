@@ -18,10 +18,21 @@ internal class Program {
         var userRepository = new UserRepository();
         userRepository.InitializeWithSeedData(); // Initialize with seed data
         
+        var walletRepository = new WalletRepository();
+        
+        var eventPublisher = new EventPublisher();
+        
         var userValidationService = new UserValidationService();
-        var userCreationService = new UserCreationService(userRepository, userValidationService);
+        var userCreationService = new UserCreationService(userRepository, userValidationService, eventPublisher);
         var userDisplayService = new UserDisplayService(userRepository);
         var userInputService = new UserInputService(userValidationService);
+        
+        var walletCreationService = new WalletCreationService(walletRepository);
+        var walletDisplayService = new WalletDisplayService(walletRepository);
+        var walletEventHandler = new WalletEventHandler(walletCreationService, eventPublisher);
+        
+        // Subscribe to events
+        walletEventHandler.SubscribeToEvents(eventPublisher);
         
         var userService = new UserService(userCreationService, userDisplayService, userInputService);
         
@@ -37,10 +48,18 @@ internal class Program {
                     Console.WriteLine(new string('-', 75));
                     Console.WriteLine("Thank you for visting Crypto world");
                     Console.WriteLine(new string('-', 75));
+                    
+                    // Clean up: Unsubscribe from all events before exiting
+                    eventPublisher.UnsubscribeAll();
+                    Console.WriteLine("Cleaned up event subscriptions.");
+                    
                     isRunning = false;
                     break;
                 case 100:
                     marketService.DisplayMarkets();
+                    break;
+                case 101:
+                    walletDisplayService.DisplayAllWallets();
                     break;
                 case 1:
                     userService.CreateUser();

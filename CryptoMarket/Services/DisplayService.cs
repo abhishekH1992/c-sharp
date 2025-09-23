@@ -8,6 +8,7 @@ namespace CryptoMarket.Services
             Console.WriteLine(new string('-', 75));
 
             Console.WriteLine("100 - Market \n"+
+                                "101 - Get List of all wallets\n"+
                                 "1 - To add new user\n"+
                                 "2 - Get List of all users\n"+
                                 "3 - Get List of all regular users\n"+

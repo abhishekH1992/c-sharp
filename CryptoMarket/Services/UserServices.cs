@@ -1,6 +1,7 @@
 using CryptoMarket.Models;
 using CryptoMarket.Models.UserTypes;
 using CryptoMarket.Interfaces;
+using CryptoMarket.Events;
 
 namespace CryptoMarket.Services
 {
@@ -8,11 +9,13 @@ namespace CryptoMarket.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly IUserValidationService _validationService;
+        private readonly IEventPublisher _eventPublisher;
 
-        public UserCreationService(IUserRepository userRepository, IUserValidationService validationService)
+        public UserCreationService(IUserRepository userRepository, IUserValidationService validationService, IEventPublisher eventPublisher)
         {
             _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
             _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
+            _eventPublisher = eventPublisher ?? throw new ArgumentNullException(nameof(eventPublisher));
         }
 
         public User CreateUser(string name, decimal deposit, string accountType)
@@ -37,6 +40,10 @@ namespace CryptoMarket.Services
 
             // Add to repository
             _userRepository.AddUser(user);
+            
+            // Publish user created event
+            var userCreatedArgs = new UserCreatedEventArgs(user);
+            _eventPublisher.PublishUserCreated(userCreatedArgs);
             
             return user;
         }
