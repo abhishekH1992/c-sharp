@@ -1,4 +1,9 @@
-﻿using CryptoMarket.Services;
+﻿using CryptoMarket.Services.Display;
+using CryptoMarket.Services.User;
+using CryptoMarket.Services.Wallet;
+using CryptoMarket.Services.Market;
+using CryptoMarket.Services.Events;
+using CryptoMarket.Services.Notifications;
 using CryptoMarket.Repositories;
 using CryptoMarket.Data;
 using CryptoMarket.Interfaces;
@@ -23,11 +28,13 @@ internal class Program {
         var eventPublisher = new EventPublisher();
         
         var userValidationService = new UserValidationService();
-        var userCreationService = new UserCreationService(userRepository, userValidationService, eventPublisher);
+        var notificationService = new NotificationService();
+        var userCreationService = new UserCreationService(userRepository, userValidationService, eventPublisher, notificationService);
         var userDisplayService = new UserDisplayService(userRepository);
         var userInputService = new UserInputService(userValidationService);
         
-        var walletCreationService = new WalletCreationService(walletRepository);
+        
+        var walletCreationService = new WalletCreationService(walletRepository, notificationService);
         var walletDisplayService = new WalletDisplayService(walletRepository);
         var walletEventHandler = new WalletEventHandler(walletCreationService, eventPublisher);
         

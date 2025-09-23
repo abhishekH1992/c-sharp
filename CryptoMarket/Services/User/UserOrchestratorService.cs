@@ -1,7 +1,7 @@
 using CryptoMarket.Models;
 using CryptoMarket.Interfaces;
 
-namespace CryptoMarket.Services
+namespace CryptoMarket.Services.User
 {
     public class UserService 
     {
@@ -20,7 +20,7 @@ namespace CryptoMarket.Services
             _inputService = inputService ?? throw new ArgumentNullException(nameof(inputService));
         }
 
-        public User CreateUser()
+        public Models.User CreateUser()
         {
             try
             {
@@ -28,7 +28,7 @@ namespace CryptoMarket.Services
                 decimal deposit = _inputService.GetValidDeposit();
                 string accountType = _inputService.GetValidAccountType();
 
-                User user = _creationService.CreateUser(name, deposit, accountType);
+                Models.User user = _creationService.CreateUser(name, deposit, accountType);
                 
                 Console.WriteLine($"{accountType} user created successfully: {user.Name} ({user.AccountType}) - Deposit: ${user.Deposit:N2}");
                 

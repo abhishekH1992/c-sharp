@@ -2,11 +2,11 @@ using CryptoMarket.Models;
 using CryptoMarket.Data;
 using CryptoMarket.Interfaces;
 
-namespace CryptoMarket.Services
+namespace CryptoMarket.Services.Market
 {
     public class MarketService : IMarketService
     {
-        private readonly List<Market> _markets;
+        private readonly List<Models.Market> _markets;
         private readonly MarketSeeder _seeder;
 
         // Constructor injection
@@ -16,12 +16,12 @@ namespace CryptoMarket.Services
             _markets = MarketSeeder.GetSeedData();
         }
 
-        public List<Market> GetMarkets()
+        public List<Models.Market> GetMarkets()
         {
             return _markets.ToList(); // Return copy to prevent external modification
         }
 
-        public Market? GetMarketByCoin(string coin)
+        public Models.Market? GetMarketByCoin(string coin)
         {
             return _markets.FirstOrDefault(m => m.Coin.Equals(coin, StringComparison.OrdinalIgnoreCase));
         }

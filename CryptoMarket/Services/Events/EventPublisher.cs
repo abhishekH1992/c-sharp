@@ -1,7 +1,7 @@
 using CryptoMarket.Events;
 using CryptoMarket.Interfaces;
 
-namespace CryptoMarket.Services
+namespace CryptoMarket.Services.Events
 {
     // Event publisher implementation - Single Responsibility Principle
     public class EventPublisher : IEventPublisher

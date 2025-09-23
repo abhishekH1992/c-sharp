@@ -1,4 +1,4 @@
-namespace CryptoMarket.Services
+namespace CryptoMarket.Services.Display
 {
     public class DisplayService {
         public int MainMenu() {

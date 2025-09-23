@@ -1,7 +1,7 @@
 using CryptoMarket.Models;
 using CryptoMarket.Interfaces;
 
-namespace CryptoMarket.Services
+namespace CryptoMarket.Services.Wallet
 {
     // Wallet display service implementation - Single Responsibility Principle
     public class WalletDisplayService : IWalletDisplayService
@@ -65,7 +65,7 @@ namespace CryptoMarket.Services
             Console.WriteLine(new string('-', 100));
         }
 
-        public void DisplayWalletDetails(Wallet wallet)
+        public void DisplayWalletDetails(Models.Wallet wallet)
         {
             if (wallet == null)
             {

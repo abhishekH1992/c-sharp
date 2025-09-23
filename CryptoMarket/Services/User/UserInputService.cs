@@ -1,6 +1,6 @@
 using CryptoMarket.Interfaces;
 
-namespace CryptoMarket.Services
+namespace CryptoMarket.Services.User
 {
     public class UserInputService
     {
@@ -18,7 +18,7 @@ namespace CryptoMarket.Services
                 Console.WriteLine("Name: ");
                 string? name = Console.ReadLine();
                 
-                if (_validationService.ValidateName(name))
+                if (_validationService.ValidateName(name!))
                 {
                     return name!;
                 }

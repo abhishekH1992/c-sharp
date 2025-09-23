@@ -3,22 +3,24 @@ using CryptoMarket.Models.UserTypes;
 using CryptoMarket.Interfaces;
 using CryptoMarket.Events;
 
-namespace CryptoMarket.Services
+namespace CryptoMarket.Services.User
 {
     public class UserCreationService : IUserCreationService
     {
         private readonly IUserRepository _userRepository;
         private readonly IUserValidationService _validationService;
         private readonly IEventPublisher _eventPublisher;
+        private readonly INotificationService _notificationService;
 
-        public UserCreationService(IUserRepository userRepository, IUserValidationService validationService, IEventPublisher eventPublisher)
+        public UserCreationService(IUserRepository userRepository, IUserValidationService validationService, IEventPublisher eventPublisher, INotificationService notificationService)
         {
             _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
             _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
             _eventPublisher = eventPublisher ?? throw new ArgumentNullException(nameof(eventPublisher));
+            _notificationService = notificationService ?? throw new ArgumentNullException(nameof(notificationService)); 
         }
 
-        public User CreateUser(string name, decimal deposit, string accountType)
+        public Models.User CreateUser(string name, decimal deposit, string accountType)
         {
             // Validate inputs
             if (!_validationService.ValidateName(name))
@@ -31,7 +33,7 @@ namespace CryptoMarket.Services
                 throw new ArgumentException("Invalid account type", nameof(accountType));
 
             // Create user based on type
-            User user = accountType.ToLower() switch
+            Models.User user = accountType.ToLower() switch
             {
                 "regular" => new RegularUser(name, deposit),
                 "premium" => new PremiumUser(name, deposit),

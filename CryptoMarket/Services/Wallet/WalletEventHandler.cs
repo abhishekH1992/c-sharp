@@ -1,7 +1,7 @@
 using CryptoMarket.Events;
 using CryptoMarket.Interfaces;
 
-namespace CryptoMarket.Services
+namespace CryptoMarket.Services.Wallet
 {
     // Wallet event handler - subscribes to user creation events
     public class WalletEventHandler : IEventSubscriber
